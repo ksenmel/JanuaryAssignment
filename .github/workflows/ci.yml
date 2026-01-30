@@ -1,0 +1,24 @@
+name: Lint&Tests
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Lint with black
+      run: |
+        pip install black
+        black --check .
+        
+    - name: Test with pytest
+      run: |
+        pip install pytest
+        pytest
