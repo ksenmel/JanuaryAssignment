@@ -1,4 +1,20 @@
 def has_cycle(graph: dict[int, list[int]]) -> bool:
+    """
+    Checks for a cycle in a directed graph using depth-first search (DFS).
+
+    Args:
+        graph: A directed graph represented as an adjacency dictionary,
+        where keys are vertices and values are lists of adjacent vertices.
+        Example: {0: [1, 2], 1: [2], 2: []}
+
+    Returns:
+        bool: True if the graph contains at least one cycle, False otherwise.
+
+    Raises:
+        TypeError: If graph is not a dictionary or if the adjacent list of vertices
+        is not a list.
+        ValueError: If an adjacent vertex is absent from the vertex set of a graph.
+    """
     if not isinstance(graph, dict):
         raise TypeError("Graph must be a dictionary")
 
