@@ -2,6 +2,7 @@ from src.cycles import has_cycle
 
 import pytest
 
+
 def test_graph_with_cycle():
     graph = {
         0: [1],

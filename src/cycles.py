@@ -8,7 +8,9 @@ def has_cycle(graph: dict[int, list[int]]) -> bool:
 
         for neighbor in neighbors:
             if neighbor not in graph:
-                raise ValueError(f"Neighbor {neighbor} is not present in graph vertices")
+                raise ValueError(
+                    f"Neighbor {neighbor} is not present in graph vertices"
+                )
 
     in_progress = set[int]()
     visited = set[int]()
