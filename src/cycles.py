@@ -19,19 +19,17 @@ def has_cycle(graph: dict[int, list[int]]) -> bool:
 
         stack = [start_vertex]
         in_progress.add(start_vertex)
-        parent: dict[int, int | None] = {start_vertex: None}
 
         while stack:
             vertex = stack[-1]
             has_unvisited = False
 
             for neighbor in graph.get(vertex, []):
-                if neighbor in in_progress and neighbor != parent.get(vertex):
+                if neighbor in in_progress:
                     return True
 
                 if neighbor not in in_progress and neighbor not in visited:
                     in_progress.add(neighbor)
-                    parent[neighbor] = vertex
                     stack.append(neighbor)
                     has_unvisited = True
                     break
